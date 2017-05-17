@@ -46,10 +46,7 @@ dependencies {
     compile posterDependencies.recyclerView
     compile posterDependencies.constraint
     compile posterDependencies.butterKnife
-    compile posterDependencies.immutables
-    compile posterDependencies.immutablesGson
     compile posterDependencies.dagger
-    compile posterDependencies.rxJava
     compile posterDependencies.rxAndroid
     compile posterDependencies.circleImageView
     compile posterDependencies.picasso
