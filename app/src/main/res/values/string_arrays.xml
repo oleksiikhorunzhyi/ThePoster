@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="movies_categories">
+        <item>На экранах</item>
+        <item>Ожидаемые</item>
+        <item>Топ-рейтинг</item>
+        <item>Популярные</item>
+    </string-array>
+</resources>

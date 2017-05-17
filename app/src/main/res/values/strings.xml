@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">The Poster</string>
+    <string name="app_author">Alexei Khorunzhyi</string>
+    <string name="app_ltd">Code Labs Ltd</string>
+
+    <!-- Menu-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_categories">Категории</string>
+    <string name="navigation_drawer_films">Фильмы</string>
+    <string name="navigation_drawer_serials">Сериалы</string>
+    <string name="navigation_drawer_share">Поделиться</string>
+    <string name="navigation_drawer_send">Отправить</string>
+    <string name="action_settings">Настройки</string>
+
+    <!-- Buttons-->
+    <string name="btn_view_retry_text">повторить</string>
+
+    <!-- Text-->
+
+    <!-- Dialogs-->
+</resources>

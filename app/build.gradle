@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+def posterDependencies = rootProject.ext.posterDependencies
+def globalConfiguration = rootProject.extensions.getByName("ext")
+
+android {
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+
+        applicationId globalConfiguration["applicationId"]
+        versionCode globalConfiguration["versionCode"]
+        versionName globalConfiguration["versionName"]
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    compile posterDependencies.conductorMvp
+    compile posterDependencies.conductorSupport
+    compile posterDependencies.rxLifecycleAvdroid
+    compile posterDependencies.compat
+    compile posterDependencies.constraint
+    compile posterDependencies.design
+    compile posterDependencies.recyclerView
+    compile posterDependencies.constraint
+    compile posterDependencies.butterKnife
+    compile posterDependencies.immutables
+    compile posterDependencies.immutablesGson
+    compile posterDependencies.dagger
+    compile posterDependencies.rxJava
+    compile posterDependencies.rxAndroid
+    compile posterDependencies.circleImageView
+    compile posterDependencies.picasso
+
+    compile project(':api')
+
+    apt posterDependencies.daggerCompiller
+    apt posterDependencies.butterKnifeCompiller
+}

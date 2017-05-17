@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'idea'
+
+compileJava {
+    sourceCompatibility = '1.6'
+    targetCompatibility = '1.6'
+}
+compileTestJava {
+    sourceCompatibility = '1.8'
+}
+
+sourceSets {
+    apt {
+        java {
+            srcDir 'build/generated/source/apt/api'
+        }
+    }
+}
+
+dependencies {
+    def posterDependencies = rootProject.ext.posterDependencies
+
+    compile posterDependencies.janet
+    compile posterDependencies.janetCommand
+    compile posterDependencies.janetServices
+    compile posterDependencies.janetOkHttp
+    compile posterDependencies.janetGson
+    compile posterDependencies.immutables
+    compile posterDependencies.immutablesGson
+    compile posterDependencies.rxJava
+    compile posterDependencies.ideaAnnotation
+
+    apt posterDependencies.janetCompiller
+    apt posterDependencies.immutables
+}
