@@ -4,8 +4,8 @@
     <string name="app_ltd">Code Labs Ltd</string>
 
     <!-- Menu-->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
     <string name="navigation_drawer_categories">Категории</string>
     <string name="navigation_drawer_films">Фильмы</string>
     <string name="navigation_drawer_serials">Сериалы</string>
