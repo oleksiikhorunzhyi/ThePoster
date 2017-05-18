@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'net.ltgt.apt'
 apply plugin: 'idea'
 
@@ -13,15 +13,16 @@ compileTestJava {
 dependencies {
     def posterDependencies = rootProject.ext.posterDependencies
 
-    compile posterDependencies.janet
-    compile posterDependencies.janetCommand
-    compile posterDependencies.janetServices
-    compile posterDependencies.janetOkHttp
-    compile posterDependencies.janetGson
-    compile posterDependencies.immutables
-    compile posterDependencies.immutablesGson
-    compile posterDependencies.rxJava
-    compile posterDependencies.ideaAnnotation
+    api posterDependencies.janet
+    api posterDependencies.janetCommand
+    api posterDependencies.janetServices
+    api posterDependencies.janetOkHttp
+    api posterDependencies.janetGson
+    api posterDependencies.immutables
+    api posterDependencies.immutablesGson
+    api posterDependencies.rxJava
+
+    implementation posterDependencies.ideaAnnotation
 
     apt posterDependencies.janetCompiller
     apt posterDependencies.immutables
