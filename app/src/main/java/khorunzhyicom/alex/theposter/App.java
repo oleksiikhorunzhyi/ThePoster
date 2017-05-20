@@ -1,4 +1,4 @@
-package khorunzhyicom.alex.theposter.application;
+package khorunzhyicom.alex.theposter;
 
 import android.app.Application;
 import android.support.annotation.NonNull;

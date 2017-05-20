@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import khorunzhyicom.alex.theposter.application.App;
+import khorunzhyicom.alex.theposter.App;
 
 @Module
 public class AppModule {

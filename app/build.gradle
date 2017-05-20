@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 def posterDependencies = rootProject.ext.posterDependencies
@@ -19,6 +18,8 @@ android {
         versionCode globalConfiguration["versionCode"]
         versionName globalConfiguration["versionName"]
     }
+
+    dataBinding.enabled true
 
     lintOptions {
         abortOnError false
@@ -53,9 +54,10 @@ dependencies {
     compile posterDependencies.rxAndroid
     compile posterDependencies.circleImageView
     compile posterDependencies.picasso
+    compile posterDependencies.adapter
 
     compile project(':api')
 
-    apt posterDependencies.daggerCompiller
-    apt posterDependencies.butterKnifeCompiller
+    annotationProcessor posterDependencies.daggerCompiller
+    annotationProcessor posterDependencies.butterKnifeCompiller
 }

@@ -1,7 +1,7 @@
 package khorunzhyicom.alex.theposter.di.components.injector;
 
 
-import khorunzhyicom.alex.theposter.application.App;
+import khorunzhyicom.alex.theposter.App;
 
 public interface AppInjector extends Injector {
 

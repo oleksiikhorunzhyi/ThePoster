@@ -10,7 +10,7 @@ import khorunzhyicom.alex.theposter.api.auth.AuthDataProvider;
 import khorunzhyicom.alex.theposter.api.config.ConfigData;
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider;
 import khorunzhyicom.alex.theposter.api.service.PosterHttpService;
-import khorunzhyicom.alex.theposter.application.App;
+import khorunzhyicom.alex.theposter.App;
 import khorunzhyicom.alex.theposter.di.scoupes.ServiceScoup;
 import khorunzhyicom.alex.theposter.service.common.InjectableCommandActionService;
 

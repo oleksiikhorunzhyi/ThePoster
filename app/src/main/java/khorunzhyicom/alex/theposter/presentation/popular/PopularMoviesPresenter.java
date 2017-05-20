@@ -33,14 +33,10 @@ public class PopularMoviesPresenter extends MvpBasePresenter<PopularMoviesView> 
                 .compose(new ActionStateToActionTransformer<>())
                 .compose(new CommandResultComposer<>())
                 .compose(getView()::bindViewToMainComposer)
-                .subscribe(this::onItemsLoaded, this::onItemsLoadedFail);
-    }
-
-    private void onItemsLoaded(List<Movie> movies) {
-        movies.isEmpty();
+                .subscribe(items -> getView().updateMovies(items), this::onItemsLoadedFail);
     }
 
     private void onItemsLoadedFail(Throwable throwable) {
-        Log.e("MOVIE ERROR", throwable.getLocalizedMessage());
+        Log.e("error", throwable.getLocalizedMessage());
     }
 }
