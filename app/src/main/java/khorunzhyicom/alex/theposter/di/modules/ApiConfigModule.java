@@ -8,12 +8,12 @@ import khorunzhyicom.alex.theposter.api.auth.ImmutableAuthData;
 import khorunzhyicom.alex.theposter.api.config.ConfigData;
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider;
 import khorunzhyicom.alex.theposter.api.config.ImmutableConfigData;
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScoup;
+import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope;
 
 @Module
 public class ApiConfigModule {
 
-    @ServiceScoup
+    @ServiceScope
     @Provides
     AuthDataProvider<AuthData> provideAuthDataProvider() {
         return () -> ImmutableAuthData.builder()
@@ -21,7 +21,7 @@ public class ApiConfigModule {
                 .build();
     }
 
-    @ServiceScoup
+    @ServiceScope
     @Provides
     ConfigDataProvider<ConfigData> provideConfigDataProvider() {
         return () -> ImmutableConfigData.builder()

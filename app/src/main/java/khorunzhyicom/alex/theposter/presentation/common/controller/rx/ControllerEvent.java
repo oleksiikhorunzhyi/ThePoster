@@ -1,8 +1,7 @@
-package khorunzhyicom.alex.theposter.presentation.common.controller.rxlifecycle;
+package khorunzhyicom.alex.theposter.presentation.common.controller.rx;
 
 public enum ControllerEvent {
 
-    CREATE,
     CREATE_VIEW,
     ATTACH,
     DETACH,

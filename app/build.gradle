@@ -49,7 +49,6 @@ dependencies {
     compile posterDependencies.design
     compile posterDependencies.recyclerView
     compile posterDependencies.constraint
-    compile posterDependencies.butterKnife
     compile posterDependencies.dagger
     compile posterDependencies.rxAndroid
     compile posterDependencies.circleImageView
@@ -59,5 +58,4 @@ dependencies {
     compile project(':api')
 
     annotationProcessor posterDependencies.daggerCompiller
-    annotationProcessor posterDependencies.butterKnifeCompiller
 }

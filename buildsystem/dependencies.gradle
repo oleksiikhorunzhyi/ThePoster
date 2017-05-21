@@ -55,8 +55,6 @@ ext {
         conductorMvp:           "com.hannesdorfmann.mosby3:mvp-conductor:${conductorMvpVersion}",
         conductorSupport:       "com.bluelinelabs:conductor-support:${conductorSupportVersion}",
 
-        butterKnife:            "com.jakewharton:butterknife:${butterknifeVersion}",
-        butterKnifeCompiller:   "com.jakewharton:butterknife-compiler:${butterknifeVersion}",
         immutables:             "org.immutables:value:${immutablesVersion}",
         immutablesGson:         "org.immutables:gson:${immutablesVersion}",
 

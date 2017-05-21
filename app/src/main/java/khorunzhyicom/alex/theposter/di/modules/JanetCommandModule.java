@@ -11,24 +11,23 @@ import khorunzhyicom.alex.theposter.api.config.ConfigData;
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider;
 import khorunzhyicom.alex.theposter.api.service.PosterHttpService;
 import khorunzhyicom.alex.theposter.App;
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScoup;
+import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope;
 import khorunzhyicom.alex.theposter.service.common.InjectableCommandActionService;
 
 @Module
 public class JanetCommandModule {
 
-    @ServiceScoup
+    @ServiceScope
     @Provides
     Janet provideJanet(ActionService service, AuthDataProvider<AuthData> authDataProvider, ConfigDataProvider<ConfigData> configDataProvider, App context) {
         Janet.Builder builder = new Janet.Builder();
         service = new InjectableCommandActionService(service, context);
         builder.addService(new PosterHttpService(configDataProvider, authDataProvider));
         builder.addService(service);
-        //builder.addService(new InjectableCommandActionService(service, context));
         return builder.build();
     }
 
-    @ServiceScoup
+    @ServiceScope
     @Provides
     ActionService provideCommandActionService() {
         return new CommandActionService();

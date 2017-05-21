@@ -32,7 +32,7 @@ public class PopularMoviesPresenter extends MvpBasePresenter<PopularMoviesView> 
                 .observe()
                 .compose(new ActionStateToActionTransformer<>())
                 .compose(new CommandResultComposer<>())
-                .compose(getView()::bindViewToMainComposer)
+                .compose(getView()::bindToMainComposer)
                 .subscribe(items -> getView().updateMovies(items), this::onItemsLoadedFail);
     }
 
