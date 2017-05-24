@@ -1,11 +1,10 @@
 package khorunzhyicom.alex.theposter.api.actions.common;
 
 import io.techery.janet.http.annotations.Query;
-import io.techery.janet.http.annotations.RequestHeader;
 import io.techery.janet.http.annotations.Status;
 import khorunzhyicom.alex.theposter.api.auth.AuthData;
 
-public abstract class PosterHttpAction implements AuthorizableAction {
+public abstract class PosterHttpAction implements Authorizable {
 
     @Query("api_key") String token;
     @Status int statusCode;

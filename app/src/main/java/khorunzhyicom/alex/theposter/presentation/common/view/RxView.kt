@@ -4,7 +4,5 @@ import rx.Observable
 
 interface RxView {
 
-    fun <T> bind(observable: Observable<T>): Observable<T>
-
-    fun <T> bindToMainComposer(observable: Observable<T>): Observable<T>
+    fun <T> bindToLifecycle(observable: Observable<T>): Observable<T>
 }

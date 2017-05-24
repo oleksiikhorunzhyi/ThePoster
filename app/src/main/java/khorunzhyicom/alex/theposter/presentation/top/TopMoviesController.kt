@@ -8,11 +8,13 @@ import khorunzhyicom.alex.theposter.R
 import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
+import khorunzhyicom.alex.theposter.presentation.common.view.DaggerView
+import khorunzhyicom.alex.theposter.presentation.common.view.PosterView
 
-class TopMoviesController : ViewBinderController<TopMoviesView, TopMoviesPresenter>(), TopMoviesView {
+class TopMoviesController : ViewBinderController<TopMoviesView, TopMoviesPresenter>(), PosterView, DaggerView<PresentationInjector> {
 
-    override fun inflateView(layoutInflater: LayoutInflater, viewGroup: ViewGroup): View {
-        return layoutInflater.inflate(R.layout.controller_top_movies, viewGroup, false)
+    override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
+        return inflater.inflate(R.layout.controller_top_movies, container, false)
     }
 
     override fun createPresenter(): TopMoviesPresenter {

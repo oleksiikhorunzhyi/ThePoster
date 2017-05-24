@@ -11,18 +11,13 @@ import khorunzhyicom.alex.theposter.service.models.Movie
 
 class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularMoviesPresenter>(), PopularMoviesView {
 
-    override fun createPresenter(): PopularMoviesPresenter {
-        return PopularMoviesPresenter()
-    }
+    override fun createPresenter(): PopularMoviesPresenter = PopularMoviesPresenter()
 
-    override fun injector(): PresentationInjector {
-        return (applicationContext as App).uiComponent()
-    }
+    override fun injector(): PresentationInjector = (applicationContext as App).uiComponent()
 
-    override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
-        return inflater.inflate(R.layout.controller_popular_movies, container, false)
-    }
+    override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View = inflater.inflate(R.layout.controller_popular_movies, container, false)
 
-    override fun updateMovies(movies: List<Movie>) {
-    }
+    override fun updateMovies(movies: List<Movie>) {}
+
+    override fun showError(error: String) {}
 }

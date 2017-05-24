@@ -16,14 +16,10 @@ import rx.subjects.PublishSubject
 
 abstract class RxMvpController<V : MvpView, P : MvpPresenter<V>> (args: Bundle?) : MvpController<V, P>(args), RxView {
 
-    internal var lifecycleSubject: PublishSubject<ControllerEvent> = ControllerLifecycleSubject.wrap(this)
+    internal val lifecycleSubject: PublishSubject<ControllerEvent> = ControllerLifecycleSubject.wrap(this)
 
-    override fun <T> bind(observable: Observable<T>): Observable<T> {
+    override fun <T> bindToLifecycle(observable: Observable<T>): Observable<T> {
         return observable.compose(bindUntilDetachView<T>())
-    }
-
-    override fun <T> bindToMainComposer(observable: Observable<T>): Observable<T> {
-        return bind(observable).compose(IoToMainComposer<T>())
     }
 
     protected fun <T> bindUntilDetachView(): LifecycleTransformer<T> {
