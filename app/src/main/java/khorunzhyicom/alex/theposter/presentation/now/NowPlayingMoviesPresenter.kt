@@ -1,24 +1,24 @@
-package khorunzhyicom.alex.theposter.presentation.popular
+package khorunzhyicom.alex.theposter.presentation.now
 
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter
 import khorunzhyicom.alex.theposter.service.commands.ext.defaultStateComposer
-import khorunzhyicom.alex.theposter.service.interactors.PopularMoviesInteractor
+import khorunzhyicom.alex.theposter.service.interactors.NowPlayingMoviesInteractor
 import javax.inject.Inject
 
-class PopularMoviesPresenter : MvpBasePresenter<PopularMoviesView>() {
+class NowPlayingMoviesPresenter : MvpBasePresenter<NowPlayingMoviesView>()  {
 
-    @Inject lateinit var popularMoviesInteractor: PopularMoviesInteractor
+    @Inject lateinit var interactor: NowPlayingMoviesInteractor
 
-    override fun attachView(view: PopularMoviesView) {
+    override fun attachView(view: NowPlayingMoviesView) {
         super.attachView(view)
         view.injector().inject(this)
         subscribeToMoviesUpdates()
 
-        popularMoviesInteractor.requestMovies()
+        interactor.requestMovies()
     }
 
     private fun subscribeToMoviesUpdates() {
-        popularMoviesInteractor.pipe()
+        interactor.pipe()
                 .observe()
                 .defaultStateComposer(view)
                 .subscribe({ view.updateMovies(it) }, { view.showError(it.localizedMessage) })

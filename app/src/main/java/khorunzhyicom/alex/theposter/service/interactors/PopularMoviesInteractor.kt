@@ -16,7 +16,7 @@ class PopularMoviesInteractor(janet: Janet) {
 
     private val popularMoviesPipe: ActionPipe<GetPopularMoviesCommand> = janet.createPipe(GetPopularMoviesCommand::class)
 
-    fun popularMoviesPipe(): ReadActionPipe<GetPopularMoviesCommand> = popularMoviesPipe
+    fun pipe(): ReadActionPipe<GetPopularMoviesCommand> = popularMoviesPipe
 
-    fun requestPopularMovies() = popularMoviesPipe.send(GetPopularMoviesCommand())
+    fun requestMovies() = popularMoviesPipe.send(GetPopularMoviesCommand())
 }

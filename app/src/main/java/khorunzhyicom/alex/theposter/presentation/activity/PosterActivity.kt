@@ -21,7 +21,7 @@ class PosterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        (applicationContext as App).uiComponent().inject(this)
+        (applicationContext as App).uiInjector().inject(this)
 
         drawerInitializer.initialize(this)
         drawer = findViewById(R.id.drawer_layout) as DrawerLayout

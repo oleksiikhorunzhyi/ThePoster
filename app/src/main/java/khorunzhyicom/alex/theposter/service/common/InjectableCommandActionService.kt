@@ -12,11 +12,7 @@ import khorunzhyicom.alex.theposter.service.commands.base.InjectableCommand
 
 class InjectableCommandActionService(service: ActionService, app: App) : ActionServiceWrapper(service) {
 
-    private val injector: Injector
-
-    init {
-        this.injector = Injector.create(app.apiComponent())
-    }
+    private val injector: Injector = Injector.create(app.commandInjector())
 
     override fun <A> onInterceptSend(holder: ActionHolder<A>): Boolean {
         val action = holder.action() as? InjectableCommand ?: return false
@@ -42,7 +38,7 @@ class InjectableCommandActionService(service: ActionService, app: App) : ActionS
 
         companion object {
 
-            fun create(apiComponent: ApiComponent): Injector = Injector(apiComponent)
+            fun create(injector: CommandInjector): Injector = Injector(injector)
 
         }
     }

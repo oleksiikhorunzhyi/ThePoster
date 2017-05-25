@@ -13,6 +13,12 @@
     <string name="drawer_send">Отправить</string>
     <string name="action_settings">Настройки</string>
 
+    <!-- Tabs-->
+    <string name="tab_top">Топ</string>
+    <string name="tab_now">Сейчас в прокате</string>
+    <string name="tab_popular">Популярные</string>
+    <string name="tab_upcoming">Ожидаемые</string>
+
     <!-- Buttons-->
     <string name="btn_view_retry_text">повторить</string>
 

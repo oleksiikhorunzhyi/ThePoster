@@ -11,7 +11,7 @@ class NowPlayingMoviesInteractor(janet: Janet) {
 
     private val nowPlayingMoviesPipe: ActionPipe<GetNowPlayingMoviesCommand> = janet.createPipe(GetNowPlayingMoviesCommand::class)
 
-    fun nowPlayingMoviesPipe(): ReadActionPipe<GetNowPlayingMoviesCommand> = nowPlayingMoviesPipe
+    fun pipe(): ReadActionPipe<GetNowPlayingMoviesCommand> = nowPlayingMoviesPipe
 
-    fun requestnowPlayingMovies() = nowPlayingMoviesPipe.send(GetNowPlayingMoviesCommand())
+    fun requestMovies() = nowPlayingMoviesPipe.send(GetNowPlayingMoviesCommand())
 }

@@ -10,7 +10,7 @@ class UpcomingMoviesInteractor(janet: Janet) {
 
     private val upcomingMoviesPipe: ActionPipe<GetUpcomingMoviesCommand> = janet.createPipe(GetUpcomingMoviesCommand::class)
 
-    fun upcomingMoviesPipe(): ReadActionPipe<GetUpcomingMoviesCommand> = upcomingMoviesPipe
+    fun pipe(): ReadActionPipe<GetUpcomingMoviesCommand> = upcomingMoviesPipe
 
-    fun requestUpcomingMovies() = upcomingMoviesPipe.send(GetUpcomingMoviesCommand())
+    fun requestMovies() = upcomingMoviesPipe.send(GetUpcomingMoviesCommand())
 }
