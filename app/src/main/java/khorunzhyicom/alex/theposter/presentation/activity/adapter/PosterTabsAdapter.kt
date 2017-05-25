@@ -11,10 +11,6 @@ import com.bluelinelabs.conductor.support.RouterPagerAdapter
 
 class PosterTabsAdapter(host: Controller, val context: Context, val tabs: List<TabView>) : RouterPagerAdapter(host) {
 
-    init {
-        setMaxPagesToStateSave(tabs.size)
-    }
-
     override fun configureRouter(router: Router, position: Int) {
         if (!router.hasRootController()) {
             val controller = tabs[position].controller()
@@ -22,13 +18,9 @@ class PosterTabsAdapter(host: Controller, val context: Context, val tabs: List<T
         }
     }
 
-    override fun getCount(): Int {
-        return tabs.size
-    }
+    override fun getCount(): Int = tabs.size
 
-    override fun getPageTitle(position: Int): CharSequence {
-        return context.getString(tabs[position].title())
-    }
+    override fun getPageTitle(position: Int): CharSequence = context.getString(tabs[position].title())
 
 }
 

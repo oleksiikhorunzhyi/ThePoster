@@ -23,6 +23,7 @@ class PosterController : ViewBinderController<PosterView, PosterPresenter>, Post
     constructor(args: Bundle?) : super(args)
 
     val pager: ViewPager by findView<ViewPager>(R.id.poster_view_pager)
+    val tabs: List<TabView> = tabs()
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
         return inflater.inflate(R.layout.controller_poster_home, container, false)
@@ -34,7 +35,8 @@ class PosterController : ViewBinderController<PosterView, PosterPresenter>, Post
 
     override fun onAttach(view: View) {
         super.onAttach(view)
-        pager.adapter = PosterTabsAdapter(this, view.context, tabs())
+        pager.adapter = PosterTabsAdapter(this, view.context, tabs)
+        pager.offscreenPageLimit = tabs.size
         (activity!!.findViewById(R.id.poster_tab_layout) as PosterTabLayout).setViewPager(pager)
     }
 
