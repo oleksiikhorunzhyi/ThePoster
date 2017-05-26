@@ -1,5 +1,4 @@
 
-
 ext {
     //
     androidBuildToolsVersion = '25.0.3'
@@ -31,6 +30,8 @@ ext {
     rxLifecycleVersion =        '1.0'
     ideaAnnotationVersion =     '13.0'
     daggerVersion =             '2.10'
+    databindingVersion =        '2.3.1'
+
     espressoVersion =           '2.2.2'
     junitVersion =              '4.12'
 
@@ -64,6 +65,7 @@ ext {
         ideaAnnotation:         "org.jetbrains:annotations:${ideaAnnotationVersion}",
         dagger:                 "com.google.dagger:dagger:${daggerVersion}",
         daggerCompiller:        "com.google.dagger:dagger-compiler:${daggerVersion}",
+        databindingCompiler:    "com.android.databinding:compiler:${databindingVersion}",
         
         circleImageView:        "de.hdodenhof:circleimageview:${circleImageViewVersion}",
         picasso:                "com.squareup.picasso:picasso:${picassoVersion}",

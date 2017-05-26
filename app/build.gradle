@@ -29,6 +29,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding.enabled true
 }
 
 dependencies {
@@ -49,7 +51,9 @@ dependencies {
     compile posterDependencies.picasso
     compile posterDependencies.adapter
 
+    kapt posterDependencies.databindingCompiler
+    kapt posterDependencies.daggerCompiller
+
     compile project(':api')
 
-    kapt posterDependencies.daggerCompiller
 }
