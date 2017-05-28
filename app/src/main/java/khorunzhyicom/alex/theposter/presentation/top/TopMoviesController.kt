@@ -17,7 +17,7 @@ import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class TopMoviesController : ViewBinderController<TopMoviesView, TopMoviesPresenter>(), TopMoviesView, TabView {
+class TopMoviesController : ViewBinderController<TopMoviesView, TopMoviesPresenter>(), TopMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -31,16 +31,17 @@ class TopMoviesController : ViewBinderController<TopMoviesView, TopMoviesPresent
 
     override fun injector(): PresentationInjector = (applicationContext as App).uiInjector()
 
-    override fun title(): Int = R.string.tab_top
+    override fun tabTitle(): Int = R.string.tab_top
 
-    override fun controller(): TopMoviesController = this
+    override fun tabController(): TopMoviesController = this
 
-    override fun updateMovies(movies: List<Movie>) {
-        this.movies.clear()
-        this.movies.addAll(movies)
+    override fun showContent(content: List<Movie>) {
+        this.movies.addAll(content)
     }
 
     override fun showError(error: String) {}
+
+    override fun showProgress(progress: Int) {}
 
     override fun onAttach(view: View) {
         super.onAttach(view)

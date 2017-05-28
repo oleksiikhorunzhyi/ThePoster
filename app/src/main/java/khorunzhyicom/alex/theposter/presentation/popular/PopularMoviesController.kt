@@ -18,7 +18,7 @@ import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularMoviesPresenter>(), PopularMoviesView, TabView {
+class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularMoviesPresenter>(), PopularMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -30,16 +30,17 @@ class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularM
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View = inflater.inflate(R.layout.controller_popular_movies, container, false)
 
-    override fun updateMovies(movies: List<Movie>) {
-        this.movies.clear()
-        this.movies.addAll(movies)
+    override fun tabTitle(): Int = R.string.tab_popular
+
+    override fun tabController(): PopularMoviesController = this
+
+    override fun showContent(content: List<Movie>) {
+        this.movies.addAll(content)
     }
 
     override fun showError(error: String) {}
 
-    override fun title(): Int = R.string.tab_popular
-
-    override fun controller(): PopularMoviesController = this
+    override fun showProgress(progress: Int) {}
 
     override fun onAttach(view: View) {
         super.onAttach(view)

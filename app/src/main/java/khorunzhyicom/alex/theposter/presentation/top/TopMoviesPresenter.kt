@@ -22,6 +22,6 @@ class TopMoviesPresenter : MvpBasePresenter<TopMoviesView>() {
         interactor.pipe()
                 .observe()
                 .defaultStateComposer(view)
-                .subscribe({ view.updateMovies(it) }, { view.showError(it.localizedMessage) })
+                .subscribe({ view.showContent(it) }, { view.showError(it.localizedMessage) })
     }
 }

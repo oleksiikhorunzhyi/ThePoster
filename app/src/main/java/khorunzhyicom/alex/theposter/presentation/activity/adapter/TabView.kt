@@ -6,7 +6,7 @@ import com.bluelinelabs.conductor.Controller
 
 interface TabView {
 
-    fun controller(): Controller
+    fun tabController(): Controller
 
-    @StringRes fun title(): Int
+    @StringRes fun tabTitle(): Int
 }

@@ -8,16 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.github.nitrico.lastadapter.LastAdapter
+import com.github.nitrico.lastadapter.Type
 import findView
 import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.BR
 import khorunzhyicom.alex.theposter.R
+import khorunzhyicom.alex.theposter.databinding.ItemViewBinding
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
-import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class NowPlayingMoviesController : ViewBinderController<NowPlayingMoviesView, NowPlayingMoviesPresenter>(), NowPlayingMoviesView, TabView {
+class NowPlayingMoviesController : ViewBinderController<NowPlayingMoviesView, NowPlayingMoviesPresenter>(), NowPlayingMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -29,16 +30,17 @@ class NowPlayingMoviesController : ViewBinderController<NowPlayingMoviesView, No
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View = inflater.inflate(R.layout.controller_now_movies, container, false)
 
-    override fun updateMovies(movies: List<Movie>) {
-        this.movies.clear()
-        this.movies.addAll(movies)
+    override fun tabTitle(): Int = R.string.tab_now
+
+    override fun tabController(): NowPlayingMoviesController = this
+
+    override fun showContent(content: List<Movie>) {
+        this.movies.addAll(content)
     }
 
     override fun showError(error: String) {}
 
-    override fun title(): Int = R.string.tab_now
-
-    override fun controller(): NowPlayingMoviesController = this
+    override fun showProgress(progress: Int) {}
 
     override fun onAttach(view: View) {
         super.onAttach(view)
