@@ -1,15 +1,13 @@
 package khorunzhyicom.alex.theposter.di.components
 
-import javax.inject.Singleton
-
 import dagger.Component
 import khorunzhyicom.alex.theposter.di.components.injector.AppInjector
-import khorunzhyicom.alex.theposter.di.modules.ApiModule
-import khorunzhyicom.alex.theposter.di.modules.AppModule
+import khorunzhyicom.alex.theposter.di.modules.*
+import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(AppModule::class))
-interface AppComponent : AppInjector, ContextProvider {
+interface AppComponent : AppInjector {
 
-    operator fun plus(apiModule: ApiModule): ApiComponent
+    fun create(): ServiceComponent
 }

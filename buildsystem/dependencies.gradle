@@ -38,7 +38,7 @@ ext {
 
 
     posterDependencies = [
-        kotlin :                "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
+        kotlin :                "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
 
         janet :                 "com.github.techery:janet:${janetVersion}",
         janetCommand :          "com.github.techery:janet-command:${janetCommandVersion}",

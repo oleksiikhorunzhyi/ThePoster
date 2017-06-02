@@ -30,6 +30,10 @@ android {
         }
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     dataBinding.enabled true
 }
 
@@ -50,9 +54,10 @@ dependencies {
     compile posterDependencies.circleImageView
     compile posterDependencies.picasso
     compile posterDependencies.adapter
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
-    kapt posterDependencies.databindingCompiler
     kapt posterDependencies.daggerCompiller
+    kapt posterDependencies.databindingCompiler
 
     compile project(':api')
 

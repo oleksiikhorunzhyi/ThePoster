@@ -14,7 +14,7 @@ import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import khorunzhyicom.alex.theposter.service.common.InjectableCommandActionService
 
-@Module class JanetCommandModule {
+@Module class JanetModule {
 
     @ServiceScope @Provides fun provideJanet(actionService: ActionService, authDataProvider: AuthDataProvider<AuthData>, configDataProvider: ConfigDataProvider<ConfigData>, context: App): Janet {
         var service = actionService

@@ -6,7 +6,6 @@ import io.techery.janet.ActionService
 import io.techery.janet.ActionServiceWrapper
 import io.techery.janet.JanetException
 import khorunzhyicom.alex.theposter.App
-import khorunzhyicom.alex.theposter.di.components.ApiComponent
 import khorunzhyicom.alex.theposter.di.components.injector.CommandInjector
 import khorunzhyicom.alex.theposter.service.commands.base.InjectableCommand
 
