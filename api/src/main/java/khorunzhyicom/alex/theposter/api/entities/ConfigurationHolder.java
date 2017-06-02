@@ -7,7 +7,6 @@ import org.immutables.value.Value;
 
 import java.util.List;
 
-import khorunzhyicom.alex.theposter.api.entities.MovieEntity;
 import khorunzhyicom.alex.theposter.api.entities.common.EntityHolder;
 
 /**
@@ -17,7 +16,7 @@ import khorunzhyicom.alex.theposter.api.entities.common.EntityHolder;
  */
 @Gson.TypeAdapters
 @Value.Immutable
-public interface MoviesHolder extends EntityHolder<List<MovieEntity>> {
+public interface ConfigurationHolder extends EntityHolder<ConfigurationEntity> {
 
-    @Override @SerializedName("results") List<MovieEntity> get();
+    @Override @SerializedName("images") ConfigurationEntity get();
 }

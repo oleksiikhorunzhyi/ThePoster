@@ -1,9 +1,10 @@
 package khorunzhyicom.alex.theposter.di.components.injector
 
-import khorunzhyicom.alex.theposter.service.commands.GetNowPlayingMoviesCommand
-import khorunzhyicom.alex.theposter.service.commands.GetPopularMoviesCommand
-import khorunzhyicom.alex.theposter.service.commands.GetTopMoviesCommand
-import khorunzhyicom.alex.theposter.service.commands.GetUpcomingMoviesCommand
+import khorunzhyicom.alex.theposter.service.commands.configuration.GetConfigurationCommand
+import khorunzhyicom.alex.theposter.service.commands.movies.GetNowPlayingMoviesCommand
+import khorunzhyicom.alex.theposter.service.commands.movies.GetPopularMoviesCommand
+import khorunzhyicom.alex.theposter.service.commands.movies.GetTopMoviesCommand
+import khorunzhyicom.alex.theposter.service.commands.movies.GetUpcomingMoviesCommand
 
 interface CommandInjector : Injector {
 
@@ -11,4 +12,5 @@ interface CommandInjector : Injector {
     fun inject(command: GetTopMoviesCommand)
     fun inject(command: GetNowPlayingMoviesCommand)
     fun inject(command: GetUpcomingMoviesCommand)
+    fun inject(command: GetConfigurationCommand)
 }

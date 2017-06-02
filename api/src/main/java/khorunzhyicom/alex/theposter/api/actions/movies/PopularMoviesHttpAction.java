@@ -1,4 +1,4 @@
-package khorunzhyicom.alex.theposter.api.actions;
+package khorunzhyicom.alex.theposter.api.actions.movies;
 
 import java.util.List;
 
@@ -11,13 +11,14 @@ import khorunzhyicom.alex.theposter.api.entities.MoviesHolder;
 
 /**
  * Author: Alexei Khorunzhyi
- * Date: 19.08.15.
+ * Date: 19.04.17.
  * Time: 01:03.
  */
-@HttpAction("/3/movie/now_playing")
-public class NowPlayingMoviesHttpAction extends PosterHttpAction implements Responsible<List<MovieEntity>> {
+@HttpAction("/3/movie/popular")
+public class PopularMoviesHttpAction extends PosterHttpAction implements Responsible<List<MovieEntity>> {
 
-    @Response MoviesHolder response;
+    @Response
+    MoviesHolder response;
 
     @Override public List<MovieEntity> response() {
         return response.get();
