@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import findView
+import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.R
+import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
 import khorunzhyicom.alex.theposter.presentation.activity.adapter.PosterTabLayout
 import khorunzhyicom.alex.theposter.presentation.activity.adapter.PosterTabsAdapter
 import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
@@ -33,11 +35,18 @@ class PosterController : ViewBinderController<PosterView, PosterPresenter>, Post
         return PosterPresenter()
     }
 
+    override fun injector(): PresentationInjector = (applicationContext as App).uiInjector()
+
     override fun onAttach(view: View) {
         super.onAttach(view)
         pager.adapter = PosterTabsAdapter(this, view.context, tabs)
         pager.offscreenPageLimit = tabs.size
         (activity!!.findViewById(R.id.poster_tab_layout) as PosterTabLayout).setViewPager(pager)
+    }
+
+    override fun onDetach(view: View) {
+        super.onDetach(view)
+        pager.adapter = null
     }
 
     fun tabs(): List<TabView> {
