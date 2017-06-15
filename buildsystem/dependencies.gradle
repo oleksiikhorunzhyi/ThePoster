@@ -32,9 +32,11 @@ ext {
     daggerVersion =             '2.10'
     databindingVersion =        '2.3.1'
 
-    espressoVersion =           '2.2.2'
+    powermockVersion =          '1.6.4'
     junitVersion =              '4.12'
-
+    assertJVersion =            '3.4.1'
+    fixturesVersion =           '1.0.4'
+    mockwebserverVersion =      '3.6.0'
 
 
     posterDependencies = [
@@ -73,7 +75,11 @@ ext {
     ]
 
     testDependencies = [
-        junit:              "junit:junit:${junitVersion}",
-        espresso:           "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+        junit:                  "junit:junit:${junitVersion}",
+        powermock:              "org.powermock:powermock-api-mockito:${powermockVersion}",
+        powermockJunit:         "org.powermock:powermock-module-junit4:${powermockVersion}",
+        assertJ:                "org.assertj:assertj-core:${assertJVersion}",
+        fixtures:               "ie.corballis:json-fixtures-lib:${fixturesVersion}",
+        mockwebserver:          "com.squareup.okhttp3:mockwebserver:${mockwebserverVersion}"
     ]
 }

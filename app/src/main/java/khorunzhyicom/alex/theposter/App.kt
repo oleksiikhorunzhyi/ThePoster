@@ -10,23 +10,23 @@ import khorunzhyicom.alex.theposter.di.modules.UiModule
 
 class App : Application() {
 
-    lateinit var appComponent: AppComponent
-    lateinit var serviceComponent: ServiceComponent
-    lateinit var initializerComponent: InitializerComponent
-    lateinit var uiComponent: UiComponent
+    companion object {
+        lateinit var appComponent: AppComponent
+        lateinit var serviceComponent: ServiceComponent
+        lateinit var uiComponent: UiComponent
+    }
 
     override fun onCreate() {
         super.onCreate()
-        this.appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-        this.serviceComponent = appComponent.create()
-        this.initializerComponent = serviceComponent.create()
-        this.uiComponent = initializerComponent.create(UiModule())
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        serviceComponent = appComponent.create()
+        uiComponent = serviceComponent.create(UiModule())
 
         appComponent.inject(this)
     }
 
     fun commandInjector(): CommandInjector = serviceComponent
-    fun initializerInjector(): InitializerInjector = initializerComponent
+    fun initializerInjector(): InitializerInjector = serviceComponent
     fun uiInjector(): PresentationInjector = uiComponent
 
 }

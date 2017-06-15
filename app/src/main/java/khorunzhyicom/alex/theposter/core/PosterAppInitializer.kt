@@ -2,7 +2,7 @@ package khorunzhyicom.alex.theposter.core
 
 import khorunzhyicom.alex.theposter.App
 
-class PosterAppInitializer(var app: App, val initializers: MutableSet<AppInitializer>) {
+class PosterAppInitializer(val app: App, val initializers: MutableSet<AppInitializer>) {
 
     fun initialize() {
         val injector = app.initializerInjector()

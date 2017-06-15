@@ -7,12 +7,12 @@ import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.core.AppInitializer
 import khorunzhyicom.alex.theposter.core.ConfigurationInitializer
 import khorunzhyicom.alex.theposter.core.PosterAppInitializer
-import khorunzhyicom.alex.theposter.di.scoupes.InitializeScoupe
+import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 
 @Module class InitializerModule {
 
-    @Provides @InitializeScoupe @IntoSet fun provideConfigurationInitializer() : AppInitializer = ConfigurationInitializer()
+    @Provides @ServiceScope @IntoSet fun provideConfigurationInitializer() : AppInitializer = ConfigurationInitializer()
 
-    @Provides @InitializeScoupe fun providePosterAppInitializer(app: App, initializers: MutableSet<AppInitializer>) : PosterAppInitializer = PosterAppInitializer(app, initializers)
+    @Provides @ServiceScope fun providePosterAppInitializer(app: App, initializers: MutableSet<AppInitializer>) : PosterAppInitializer = PosterAppInitializer(app, initializers)
 
 }

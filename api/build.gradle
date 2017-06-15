@@ -6,12 +6,14 @@ compileJava {
     sourceCompatibility = JavaVersion.VERSION_1_6
     targetCompatibility = JavaVersion.VERSION_1_6
 }
+
 compileTestJava {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
     def posterDependencies = rootProject.ext.posterDependencies
+    def testDependencies = rootProject.ext.testDependencies
 
     api posterDependencies.janet
     api posterDependencies.janetCommand
@@ -22,8 +24,15 @@ dependencies {
     api posterDependencies.immutablesGson
     api posterDependencies.rxJava
 
-    implementation posterDependencies.ideaAnnotation
-
     apt posterDependencies.janetCompiller
     apt posterDependencies.immutables
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.powermock
+    testImplementation testDependencies.powermockJunit
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.fixtures
+    testImplementation testDependencies.mockwebserver
+
+    compileOnly posterDependencies.ideaAnnotation
 }
