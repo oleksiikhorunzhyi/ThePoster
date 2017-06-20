@@ -14,6 +14,7 @@ import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.BR
 import khorunzhyicom.alex.theposter.R
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
+import khorunzhyicom.alex.theposter.presentation.activity.PosterActivity
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
@@ -25,7 +26,7 @@ class NowPlayingMoviesController (args: Bundle? = null) : ViewBinderController<N
 
     override fun createPresenter(): NowPlayingMoviesPresenter = NowPlayingMoviesPresenter()
 
-    override fun injector(): PresentationInjector = (applicationContext as App).uiInjector()
+    override fun injector(): PresentationInjector = (activity as PosterActivity).injector()
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View = inflater.inflate(R.layout.controller_now_movies, container, false)
 

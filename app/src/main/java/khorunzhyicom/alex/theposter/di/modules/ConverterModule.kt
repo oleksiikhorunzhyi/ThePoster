@@ -9,12 +9,13 @@ import khorunzhyicom.alex.theposter.service.mappers.Mapper
 import khorunzhyicom.alex.theposter.service.mappers.MovieMapper
 import khorunzhyicom.alex.theposter.service.mappers.MoviesMapper
 import khorunzhyicom.alex.theposter.service.models.Movie
+import javax.inject.Singleton
 
-@Module class MappingModule {
+@Module class ConverterModule {
 
-    @Provides @ServiceScope fun provideMovieMapper(): Mapper<MovieEntity, Movie> = MovieMapper()
+    @Provides @Singleton fun provideMovieMapper(): Mapper<MovieEntity, Movie> = MovieMapper()
 
-    @Provides @ServiceScope fun provideConfigurationMapper(): ConfigurationMapper = ConfigurationMapper()
+    @Provides @Singleton fun provideConfigurationMapper(): ConfigurationMapper = ConfigurationMapper()
 
-    @Provides @ServiceScope fun provideMoviesMapper(mapper: Mapper<MovieEntity, Movie>): MoviesMapper = MoviesMapper(mapper)
+    @Provides @Singleton fun provideMoviesMapper(mapper: Mapper<MovieEntity, Movie>): MoviesMapper = MoviesMapper(mapper)
 }

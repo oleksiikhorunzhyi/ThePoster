@@ -31,7 +31,7 @@ class PosterController(args: Bundle? = null) : ViewBinderController<PosterView, 
         return PosterPresenter()
     }
 
-    override fun injector(): PresentationInjector = (applicationContext as App).uiInjector()
+    override fun injector(): PresentationInjector = (activity as PosterActivity).injector()
 
     override fun onAttach(view: View) {
         super.onAttach(view)

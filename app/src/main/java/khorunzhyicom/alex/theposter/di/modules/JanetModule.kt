@@ -13,10 +13,11 @@ import khorunzhyicom.alex.theposter.api.service.PosterHttpService
 import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import khorunzhyicom.alex.theposter.service.common.InjectableCommandActionService
+import javax.inject.Singleton
 
 @Module class JanetModule {
 
-    @ServiceScope @Provides fun provideJanet(actionService: ActionService, authDataProvider: AuthDataProvider<AuthData>, configDataProvider: ConfigDataProvider<ConfigData>, context: App): Janet {
+    @Singleton @Provides fun provideJanet(actionService: ActionService, authDataProvider: AuthDataProvider<AuthData>, configDataProvider: ConfigDataProvider<ConfigData>, context: App): Janet {
         var service = actionService
         return Janet.Builder().apply {
             service = InjectableCommandActionService(service, context)
@@ -25,7 +26,5 @@ import khorunzhyicom.alex.theposter.service.common.InjectableCommandActionServic
         }.build()
     }
 
-    @ServiceScope @Provides fun provideCommandActionService(): ActionService {
-        return CommandActionService()
-    }
+    @Singleton @Provides fun provideCommandActionService(): ActionService  = CommandActionService()
 }

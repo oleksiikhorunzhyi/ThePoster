@@ -7,7 +7,7 @@ import khorunzhyicom.alex.theposter.di.modules.*
 import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 
 @ServiceScope
-@Subcomponent(modules = arrayOf(InitializerModule::class, InteractorsModule::class, ApiConfigModule::class, JanetModule::class, MappingModule::class))
+@Subcomponent(modules = arrayOf(InitializerModule::class, InteractorsModule::class, ApiConfigModule::class, JanetModule::class, ConverterModule::class))
 interface ServiceComponent : CommandInjector, InitializerInjector {
 
     fun create(uiModule: UiModule): UiComponent

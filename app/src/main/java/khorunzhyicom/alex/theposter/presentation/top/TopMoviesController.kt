@@ -14,6 +14,7 @@ import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.BR
 import khorunzhyicom.alex.theposter.R
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
+import khorunzhyicom.alex.theposter.presentation.activity.PosterActivity
 import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
@@ -30,7 +31,7 @@ class TopMoviesController(args: Bundle? = null) : ViewBinderController<TopMovies
 
     override fun createPresenter(): TopMoviesPresenter =  TopMoviesPresenter()
 
-    override fun injector(): PresentationInjector = (applicationContext as App).uiInjector()
+    override fun injector(): PresentationInjector = (activity as PosterActivity).injector()
 
     override fun tabTitle(): Int = R.string.tab_top
 

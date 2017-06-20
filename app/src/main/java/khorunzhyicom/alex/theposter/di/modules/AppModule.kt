@@ -10,7 +10,4 @@ import javax.inject.Singleton
 @Module
 class AppModule(var app: App) {
 
-    //@Provides @Singleton fun provideContext(): Context = app.applicationContext
-
-    //@Provides @Singleton fun provideResources(): Resources = app.resources
 }

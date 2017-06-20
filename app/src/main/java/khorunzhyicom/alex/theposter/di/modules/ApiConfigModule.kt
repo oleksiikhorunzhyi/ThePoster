@@ -11,16 +11,17 @@ import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider
 import khorunzhyicom.alex.theposter.api.config.ImmutableConfigData
 import khorunzhyicom.alex.theposter.api.config.ImmutableConfigDataProvider
 import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
+import javax.inject.Singleton
 
 @Module class ApiConfigModule {
 
-    @ServiceScope @Provides fun provideAuthDataProvider(): AuthDataProvider<AuthData> {
+    @Singleton @Provides fun provideAuthDataProvider(): AuthDataProvider<AuthData> {
         return ImmutableAuthDataProvider.builder<AuthData>().provide(ImmutableAuthData.builder()
                 .token("c4b8ea2605abcab92ec0ca2c0d9b864e")
                 .build()).build()
     }
 
-    @ServiceScope @Provides fun provideConfigDataProvider(): ConfigDataProvider<ConfigData> {
+    @Singleton @Provides fun provideConfigDataProvider(): ConfigDataProvider<ConfigData> {
         return ImmutableConfigDataProvider.builder<ConfigData>().provide(ImmutableConfigData.builder()
                 .url("https://api.themoviedb.org/")
                 .build()).build()
