@@ -2,6 +2,7 @@ package khorunzhyicom.alex.theposter.presentation.popular
 
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ import khorunzhyicom.alex.theposter.presentation.activity.adapter.TabView
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularMoviesPresenter>(), PopularMoviesView {
+class PopularMoviesController(args: Bundle? = null) : ViewBinderController<PopularMoviesView, PopularMoviesPresenter>(args), PopularMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -48,5 +49,10 @@ class PopularMoviesController : ViewBinderController<PopularMoviesView, PopularM
         LastAdapter(movies, BR.item)
                 .map<Movie>(R.layout.item_view)
                 .into(listView)
+    }
+
+    override fun onDetach(view: View) {
+        super.onDetach(view)
+        listView.adapter = null
     }
 }

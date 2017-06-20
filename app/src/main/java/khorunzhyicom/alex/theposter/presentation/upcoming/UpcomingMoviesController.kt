@@ -2,6 +2,7 @@ package khorunzhyicom.alex.theposter.presentation.upcoming
 
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class UpcomingMoviesController : ViewBinderController<UpcomingMoviesView, UpcomingMoviesPresenter>(), UpcomingMoviesView {
+class UpcomingMoviesController(args: Bundle? = null) : ViewBinderController<UpcomingMoviesView, UpcomingMoviesPresenter>(args), UpcomingMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -46,5 +47,10 @@ class UpcomingMoviesController : ViewBinderController<UpcomingMoviesView, Upcomi
         LastAdapter(movies, BR.item)
                 .map<Movie>(R.layout.item_view)
                 .into(listView)
+    }
+
+    override fun onDetach(view: View) {
+        super.onDetach(view)
+        listView.adapter = null
     }
 }

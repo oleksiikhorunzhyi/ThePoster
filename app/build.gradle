@@ -50,14 +50,16 @@ dependencies {
     compile posterDependencies.recyclerView
     compile posterDependencies.constraint
     compile posterDependencies.dagger
+    compile posterDependencies.daggerAndroid
     compile posterDependencies.rxAndroid
     compile posterDependencies.circleImageView
     compile posterDependencies.picasso
     compile posterDependencies.adapter
-    provided 'org.glassfish:javax.annotation:10.0-b28'
 
     kapt posterDependencies.daggerCompiller
+    kapt posterDependencies.daggerAndroidProcessor
     kapt posterDependencies.databindingCompiler
+
 
     compile project(':api')
 

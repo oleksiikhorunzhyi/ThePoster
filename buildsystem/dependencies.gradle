@@ -29,7 +29,7 @@ ext {
     rxAndroidVersion =          '1.1.0'
     rxLifecycleVersion =        '1.0'
     ideaAnnotationVersion =     '13.0'
-    daggerVersion =             '2.10'
+    daggerVersion =             '2.11-rc1'
     databindingVersion =        '2.3.1'
 
     powermockVersion =          '1.6.4'
@@ -67,6 +67,8 @@ ext {
         ideaAnnotation:         "org.jetbrains:annotations:${ideaAnnotationVersion}",
         dagger:                 "com.google.dagger:dagger:${daggerVersion}",
         daggerCompiller:        "com.google.dagger:dagger-compiler:${daggerVersion}",
+        daggerAndroid:          "com.google.dagger:dagger-android:${daggerVersion}",
+        daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}",
         databindingCompiler:    "com.android.databinding:compiler:${databindingVersion}",
         
         circleImageView:        "de.hdodenhof:circleimageview:${circleImageViewVersion}",

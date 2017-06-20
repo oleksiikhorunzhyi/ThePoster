@@ -2,23 +2,22 @@ package khorunzhyicom.alex.theposter.presentation.now
 
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.github.nitrico.lastadapter.LastAdapter
-import com.github.nitrico.lastadapter.Type
 import findView
 import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.BR
 import khorunzhyicom.alex.theposter.R
-import khorunzhyicom.alex.theposter.databinding.ItemViewBinding
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-class NowPlayingMoviesController : ViewBinderController<NowPlayingMoviesView, NowPlayingMoviesPresenter>(), NowPlayingMoviesView {
+class NowPlayingMoviesController (args: Bundle? = null) : ViewBinderController<NowPlayingMoviesView, NowPlayingMoviesPresenter>(args), NowPlayingMoviesView {
 
     val movies: ObservableList<Movie> = ObservableArrayList<Movie>()
 
@@ -48,5 +47,10 @@ class NowPlayingMoviesController : ViewBinderController<NowPlayingMoviesView, No
         LastAdapter(movies, BR.item)
                 .map<Movie>(R.layout.item_view)
                 .into(listView)
+    }
+
+    override fun onDetach(view: View) {
+        super.onDetach(view)
+        listView.adapter = null
     }
 }

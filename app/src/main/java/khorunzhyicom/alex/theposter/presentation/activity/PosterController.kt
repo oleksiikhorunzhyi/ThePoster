@@ -19,13 +19,9 @@ import khorunzhyicom.alex.theposter.presentation.popular.PopularMoviesController
 import khorunzhyicom.alex.theposter.presentation.top.TopMoviesController
 import khorunzhyicom.alex.theposter.presentation.upcoming.UpcomingMoviesController
 
-class PosterController : ViewBinderController<PosterView, PosterPresenter>, PosterView {
-
-    constructor() : this(null)
-    constructor(args: Bundle?) : super(args)
+class PosterController(args: Bundle? = null) : ViewBinderController<PosterView, PosterPresenter>(args), PosterView {
 
     val pager: ViewPager by findView<ViewPager>(R.id.poster_view_pager)
-    val tabs: List<TabView> = tabs()
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
         return inflater.inflate(R.layout.controller_poster_home, container, false)
@@ -39,8 +35,8 @@ class PosterController : ViewBinderController<PosterView, PosterPresenter>, Post
 
     override fun onAttach(view: View) {
         super.onAttach(view)
-        pager.adapter = PosterTabsAdapter(this, view.context, tabs)
-        pager.offscreenPageLimit = tabs.size
+        pager.adapter = PosterTabsAdapter(this, view.context, tabs())
+        pager.offscreenPageLimit = pager.adapter.count
         (activity!!.findViewById(R.id.poster_tab_layout) as PosterTabLayout).setViewPager(pager)
     }
 

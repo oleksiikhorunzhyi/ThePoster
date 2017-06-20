@@ -1,32 +1,35 @@
 package khorunzhyicom.alex.theposter
 
-import android.app.Application
-import khorunzhyicom.alex.theposter.di.components.*
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
+import khorunzhyicom.alex.theposter.di.components.ApplicationComponent
+import khorunzhyicom.alex.theposter.di.components.DaggerApplicationComponent
+import khorunzhyicom.alex.theposter.di.components.ServiceComponent
+import khorunzhyicom.alex.theposter.di.components.UiComponent
 import khorunzhyicom.alex.theposter.di.components.injector.CommandInjector
 import khorunzhyicom.alex.theposter.di.components.injector.InitializerInjector
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
-import khorunzhyicom.alex.theposter.di.modules.AppModule
 import khorunzhyicom.alex.theposter.di.modules.UiModule
 
-class App : Application() {
+class App : DaggerApplication() {
 
-    companion object {
-        lateinit var appComponent: AppComponent
-        lateinit var serviceComponent: ServiceComponent
-        lateinit var uiComponent: UiComponent
-    }
+    val applicationInjector: AndroidInjector<out DaggerApplication> by lazy { DaggerApplicationComponent.builder().create(this) }
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-        serviceComponent = appComponent.create()
+        serviceComponent = (applicationInjector as ApplicationComponent).createServiceComponent()
         uiComponent = serviceComponent.create(UiModule())
-
-        appComponent.inject(this)
     }
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> = applicationInjector
 
     fun commandInjector(): CommandInjector = serviceComponent
     fun initializerInjector(): InitializerInjector = serviceComponent
     fun uiInjector(): PresentationInjector = uiComponent
+
+    companion object {
+        lateinit var serviceComponent: ServiceComponent
+        lateinit var uiComponent: UiComponent
+    }
 
 }
