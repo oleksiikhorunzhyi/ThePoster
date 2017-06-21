@@ -16,5 +16,5 @@ interface ApplicationComponent : AndroidInjector<App>, CommandInjector, Initiali
 
     @Component.Builder abstract class Builder : AndroidInjector.Builder<App>()
 
-    fun plus(uiModule: UiModule): UiComponent
+    fun plus(uiModule: UiModule): ScreenComponent
 }

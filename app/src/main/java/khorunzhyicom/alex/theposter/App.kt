@@ -13,7 +13,7 @@ class App : DaggerApplication() {
 
     @Inject lateinit var appInitializer: PosterAppInitializer
 
-    val applicationInjector: AndroidInjector<out DaggerApplication> by lazy { DaggerApplicationComponent.builder().create(this) }
+    private val applicationInjector: AndroidInjector<out DaggerApplication> by lazy { DaggerApplicationComponent.builder().create(this) }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> = applicationInjector
 
