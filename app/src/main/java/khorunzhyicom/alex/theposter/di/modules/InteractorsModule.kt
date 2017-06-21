@@ -4,7 +4,6 @@ package khorunzhyicom.alex.theposter.di.modules
 import dagger.Module
 import dagger.Provides
 import io.techery.janet.Janet
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import khorunzhyicom.alex.theposter.service.interactors.*
 import javax.inject.Singleton
 

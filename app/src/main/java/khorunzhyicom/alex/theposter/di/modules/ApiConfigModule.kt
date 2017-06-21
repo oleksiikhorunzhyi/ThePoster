@@ -10,7 +10,6 @@ import khorunzhyicom.alex.theposter.api.config.ConfigData
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider
 import khorunzhyicom.alex.theposter.api.config.ImmutableConfigData
 import khorunzhyicom.alex.theposter.api.config.ImmutableConfigDataProvider
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import javax.inject.Singleton
 
 @Module class ApiConfigModule {

@@ -3,7 +3,6 @@ package khorunzhyicom.alex.theposter.di.modules
 import dagger.Module
 import dagger.Provides
 import khorunzhyicom.alex.theposter.api.entities.MovieEntity
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import khorunzhyicom.alex.theposter.service.mappers.ConfigurationMapper
 import khorunzhyicom.alex.theposter.service.mappers.Mapper
 import khorunzhyicom.alex.theposter.service.mappers.MovieMapper

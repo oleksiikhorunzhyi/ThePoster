@@ -7,7 +7,6 @@ import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.core.AppInitializer
 import khorunzhyicom.alex.theposter.core.ConfigurationInitializer
 import khorunzhyicom.alex.theposter.core.PosterAppInitializer
-import khorunzhyicom.alex.theposter.di.scoupes.ServiceScope
 import javax.inject.Singleton
 
 @Module class InitializerModule {
