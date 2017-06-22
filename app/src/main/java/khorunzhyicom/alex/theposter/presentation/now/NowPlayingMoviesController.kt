@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.nitrico.lastadapter.LastAdapter
 import findView
-import khorunzhyicom.alex.theposter.App
 import khorunzhyicom.alex.theposter.BR
 import khorunzhyicom.alex.theposter.R
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
@@ -54,4 +53,7 @@ class NowPlayingMoviesController (args: Bundle? = null) : ViewBinderController<N
         super.onDetach(view)
         listView.adapter = null
     }
+
+//    private val typePerson = Type<ItemViewBinding>(R.layout.item_view)
+//            .onBind { println("Bound ${it.binding.} at #${it.adapterPosition}") }
 }

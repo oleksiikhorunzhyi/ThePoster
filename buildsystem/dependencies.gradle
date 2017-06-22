@@ -15,7 +15,7 @@ ext {
     janetGsonVersion =          '1.0.2'
     janetCompillerVersion =     '1.0.9'
 
-    supportVersion =            '25.3.1'
+    supportVersion =            '25.4.0'
     constraintVersion =         '1.0.2'
     butterknifeVersion =        '8.6.0'
     okHttpVersion =             '2.5.0'
@@ -51,6 +51,7 @@ ext {
 
         support:                "com.android.support:support-v4:${supportVersion}",
         compat:                 "com.android.support:appcompat-v7:${supportVersion}",
+        cardView:               "com.android.support:cardview-v7:${supportVersion}",
         design:                 "com.android.support:design:${supportVersion}",
         recyclerView:           "com.android.support:recyclerview-v7:${supportVersion}",
         constraint:             "com.android.support.constraint:constraint-layout:${constraintVersion}",

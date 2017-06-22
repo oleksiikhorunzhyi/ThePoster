@@ -45,8 +45,10 @@ dependencies {
     compile posterDependencies.conductorSupport
     compile posterDependencies.rxLifecycleAvdroid
     compile posterDependencies.compat
+    compile posterDependencies.support
     compile posterDependencies.constraint
     compile posterDependencies.design
+    compile posterDependencies.cardView
     compile posterDependencies.recyclerView
     compile posterDependencies.constraint
     compile posterDependencies.dagger
