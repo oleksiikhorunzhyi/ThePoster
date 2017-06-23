@@ -1,5 +1,5 @@
 package khorunzhyicom.alex.theposter.presentation.now
 
-import khorunzhyicom.alex.theposter.presentation.common.view.PosterBaseView
+import khorunzhyicom.alex.theposter.presentation.common.view.PosterTabView
 
-interface NowPlayingMoviesView : PosterBaseView
+interface NowPlayingMoviesView : PosterTabView

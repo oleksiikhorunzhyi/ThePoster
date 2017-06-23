@@ -1,5 +1,5 @@
 package khorunzhyicom.alex.theposter.presentation.upcoming
 
-import khorunzhyicom.alex.theposter.presentation.common.view.PosterBaseView
+import khorunzhyicom.alex.theposter.presentation.common.view.PosterTabView
 
-interface UpcomingMoviesView : PosterBaseView
+interface UpcomingMoviesView : PosterTabView

@@ -14,10 +14,10 @@ import khorunzhyicom.alex.theposter.R
 import khorunzhyicom.alex.theposter.di.components.injector.PresentationInjector
 import khorunzhyicom.alex.theposter.presentation.activity.PosterActivity
 import khorunzhyicom.alex.theposter.presentation.common.controller.binder.ViewBinderController
-import khorunzhyicom.alex.theposter.presentation.common.view.PosterBaseView
+import khorunzhyicom.alex.theposter.presentation.common.view.PosterTabView
 import khorunzhyicom.alex.theposter.service.models.Movie
 
-abstract class PosterTabController<V : PosterBaseView, P : MvpPresenter<V>>(args: Bundle?) : ViewBinderController<V, P>(args), PosterBaseView
+abstract class PosterTabController<V : PosterTabView, P : MvpPresenter<V>>(args: Bundle?) : ViewBinderController<V, P>(args), PosterTabView
 {
 
     protected val movies: ObservableList<Movie> = ObservableArrayList<Movie>()

@@ -1,5 +1,5 @@
 package khorunzhyicom.alex.theposter.presentation.popular
 
-import khorunzhyicom.alex.theposter.presentation.common.view.PosterBaseView
+import khorunzhyicom.alex.theposter.presentation.common.view.PosterTabView
 
-interface PopularMoviesView : PosterBaseView
+interface PopularMoviesView : PosterTabView
