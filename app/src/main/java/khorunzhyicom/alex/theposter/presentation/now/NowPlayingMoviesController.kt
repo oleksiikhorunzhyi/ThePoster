@@ -13,7 +13,7 @@ class NowPlayingMoviesController(args: Bundle? = null) : PosterTabController<Now
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View = inflater.inflate(R.layout.controller_now_movies, container, false)
 
-    override fun tabTitle(): Int = R.string.tab_now
+    override fun tabTitle() = R.string.tab_now
 
     override fun tabController(): NowPlayingMoviesController = this
 }

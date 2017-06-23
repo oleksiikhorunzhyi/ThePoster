@@ -13,7 +13,7 @@ class PopularMoviesController(args: Bundle? = null) : PosterTabController<Popula
 
     override fun inflateView(inflater: LayoutInflater, container: ViewGroup) = inflater.inflate(R.layout.controller_popular_movies, container, false)
 
-    override fun tabTitle(): Int = R.string.tab_popular
+    override fun tabTitle() = R.string.tab_popular
 
     override fun tabController(): PopularMoviesController = this
 }

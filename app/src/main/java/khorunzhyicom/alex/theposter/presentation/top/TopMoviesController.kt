@@ -16,7 +16,7 @@ class TopMoviesController(args: Bundle? = null) : PosterTabController<TopMoviesV
 
     override fun createPresenter(): TopMoviesPresenter =  TopMoviesPresenter()
 
-    override fun tabTitle(): Int = R.string.tab_top
+    override fun tabTitle() = R.string.tab_top
 
     override fun tabController(): TopMoviesController = this
 
