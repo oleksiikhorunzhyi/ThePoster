@@ -7,10 +7,6 @@ compileJava {
     targetCompatibility = JavaVersion.VERSION_1_6
 }
 
-compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-}
-
 dependencies {
     def posterDependencies = rootProject.ext.posterDependencies
     def testDependencies = rootProject.ext.testDependencies
@@ -27,6 +23,10 @@ dependencies {
     apt posterDependencies.janetCompiller
     apt posterDependencies.immutables
 
+    testApt posterDependencies.janetCompiller
+    testApt posterDependencies.immutables
+
+    testCompile posterDependencies.kotlin
     testImplementation testDependencies.junit
     testImplementation testDependencies.powermock
     testImplementation testDependencies.powermockJunit

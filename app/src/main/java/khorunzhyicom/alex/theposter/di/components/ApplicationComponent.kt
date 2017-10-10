@@ -11,7 +11,13 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = arrayOf(AndroidInjectionModule::class, InitializerModule::class, InteractorsModule::class, ApiConfigModule::class, JanetModule::class, ConverterModule::class))
+@Component(modules = arrayOf(AndroidInjectionModule::class,
+        InitializerModule::class,
+        InteractorsModule::class,
+        InteractorsFacadeModule::class,
+        ApiConfigModule::class,
+        JanetModule::class,
+        ConverterModule::class))
 interface ApplicationComponent : AndroidInjector<App>, CommandInjector, InitializerInjector {
 
     @Component.Builder abstract class Builder : AndroidInjector.Builder<App>()

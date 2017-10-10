@@ -1,8 +1,7 @@
 package khorunzhyicom.alex.theposter.presentation.upcoming
 
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter
-import khorunzhyicom.alex.theposter.service.commands.ext.defaultStateComposer
-import khorunzhyicom.alex.theposter.service.interactors.NowPlayingMoviesInteractor
+import khorunzhyicom.alex.theposter.service.commands.ext.lifecycleStateComposer
 import khorunzhyicom.alex.theposter.service.interactors.UpcomingMoviesInteractor
 import javax.inject.Inject
 
@@ -21,7 +20,7 @@ class UpcomingMoviesPresenter : MvpBasePresenter<UpcomingMoviesView>()  {
     private fun subscribeToMoviesUpdates() {
         interactor.pipe()
                 .observe()
-                .defaultStateComposer(view)
+                .lifecycleStateComposer(view)
                 .subscribe({ view.showContent(it) }, { view.showError(it.localizedMessage) })
     }
 }

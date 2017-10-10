@@ -1,7 +1,7 @@
 package khorunzhyicom.alex.theposter.presentation.popular
 
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter
-import khorunzhyicom.alex.theposter.service.commands.ext.defaultStateComposer
+import khorunzhyicom.alex.theposter.service.commands.ext.lifecycleStateComposer
 import khorunzhyicom.alex.theposter.service.interactors.PopularMoviesInteractor
 import javax.inject.Inject
 
@@ -20,7 +20,7 @@ class PopularMoviesPresenter : MvpBasePresenter<PopularMoviesView>() {
     private fun subscribeToMoviesUpdates() {
         popularMoviesInteractor.pipe()
                 .observe()
-                .defaultStateComposer(view)
+                .lifecycleStateComposer(view)
                 .subscribe({ view.showContent(it) }, { view.showError(it.localizedMessage) })
     }
 }

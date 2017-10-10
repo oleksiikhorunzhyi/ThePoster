@@ -8,6 +8,9 @@ import io.techery.janet.helper.ActionStateToActionTransformer
 import khorunzhyicom.alex.theposter.api.actions.common.Responsible
 import khorunzhyicom.alex.theposter.presentation.common.view.RxView
 import khorunzhyicom.alex.theposter.service.composers.IoToMainComposer
+import khorunzhyicom.alex.theposter.service.composers.MergeConfigurationComposer
+import khorunzhyicom.alex.theposter.service.models.Configuration
+import khorunzhyicom.alex.theposter.service.models.Movie
 import rx.Observable
 import rx.Scheduler
 import rx.schedulers.Schedulers
@@ -46,7 +49,6 @@ inline fun <reified A : Any, reified E : Any, reified R: Responsible<A>> Observa
     return transformFromState().map { transformer.invoke(it) }
 }
 
-
 /**
  * Inline transformers for commands
  */
@@ -58,11 +60,17 @@ inline fun <reified A : Any, reified R: Command<A>> Observable<R>.commandIoCompo
     return compose(IoToMainComposer<R>()).commandResultComposer()
 }
 
-inline fun <reified A : Any, reified R: Command<A>> Observable<R>.defaultComposer(lifecycle: RxView): Observable<A> {
+inline fun <reified A : Any, reified R: Command<A>> Observable<R>.lifecycleComposer(lifecycle: RxView): Observable<A> {
     return compose { lifecycle.bindToLifecycle(it) }.commandIoComposer()
 }
 
-inline fun <reified A : Any, reified R: Command<A>> Observable<ActionState<R>>.defaultStateComposer(lifecycle: RxView): Observable<A> {
-    return compose(ActionStateToActionTransformer<R>()).defaultComposer(lifecycle)
+inline fun <reified A : Any, reified R: Command<A>> Observable<ActionState<R>>.lifecycleStateComposer(lifecycle: RxView): Observable<A> {
+    return compose (ActionStateToActionTransformer<R>()).lifecycleComposer(lifecycle)
 }
+
+inline fun <reified A : List<Movie>> Observable<A>.composeWithConfiguration(observable: Observable<Configuration>): Observable<List<Movie>> {
+    return compose (MergeConfigurationComposer(observable) )
+}
+
+
 

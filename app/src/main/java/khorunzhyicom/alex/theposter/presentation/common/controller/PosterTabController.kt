@@ -3,7 +3,7 @@ package khorunzhyicom.alex.theposter.presentation.common.controller
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.github.nitrico.lastadapter.LastAdapter
@@ -40,14 +40,9 @@ abstract class PosterTabController<V : PosterTabView, P : MvpPresenter<V>>(args:
         listView.layoutManager = provideLayoutManager()
 
         LastAdapter(movies, BR.item)
-                .map<Movie>(R.layout.item_view)
+                .map<Movie>(R.layout.view_item)
                 .into(listView)
     }
 
-    override fun onDetach(view: View) {
-        super.onDetach(view)
-        listView.adapter = null
-    }
-
-    protected fun provideLayoutManager(): RecyclerView.LayoutManager = LinearLayoutManager(view!!.context)
+    protected fun provideLayoutManager(): RecyclerView.LayoutManager = GridLayoutManager(view!!.context, 2)
 }

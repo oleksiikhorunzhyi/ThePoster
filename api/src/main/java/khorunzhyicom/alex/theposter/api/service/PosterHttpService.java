@@ -13,7 +13,7 @@ import khorunzhyicom.alex.theposter.api.config.ConfigData;
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider;
 import khorunzhyicom.alex.theposter.api.converter.PosterGsonConverter;
 
-public class PosterHttpService extends PosterActionServiceWrapper {
+public class PosterHttpService extends PosterActionService {
 
     private final AuthDataProvider<AuthData> authDataProvider;
 

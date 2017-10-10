@@ -20,7 +20,6 @@ class GetConfigurationCommand : ApiCommand<Configuration>() {
 
     override fun injectTo(component: CommandInjector) = component.inject(this)
 
-
     @Throws(Throwable::class)
     override fun run(callback: CommandCallback<Configuration>) {
         janet.createPipe(ConfigurationHttpAction::class)

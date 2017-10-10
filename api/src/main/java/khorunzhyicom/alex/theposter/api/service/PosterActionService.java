@@ -9,9 +9,9 @@ import io.techery.janet.http.HttpClient;
 import khorunzhyicom.alex.theposter.api.config.ConfigData;
 import khorunzhyicom.alex.theposter.api.config.ConfigDataProvider;
 
-public abstract class PosterActionServiceWrapper extends ActionServiceWrapper {
+public abstract class PosterActionService extends ActionServiceWrapper {
 
-    public PosterActionServiceWrapper(ConfigDataProvider<ConfigData> configDataProvider, HttpClient httpClient, Converter converter) {
+    public PosterActionService(ConfigDataProvider<ConfigData> configDataProvider, HttpClient httpClient, Converter converter) {
         super(new HttpActionService(configDataProvider.provide().url(), httpClient, converter));
     }
 
