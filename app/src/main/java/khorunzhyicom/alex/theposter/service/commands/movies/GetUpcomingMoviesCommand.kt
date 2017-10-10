@@ -3,6 +3,7 @@ package khorunzhyicom.alex.theposter.service.commands.movies
 import io.techery.janet.Janet
 import io.techery.janet.command.annotations.CommandAction
 import khorunzhyicom.alex.theposter.api.actions.movies.TopRatedMoviesHttpAction
+import khorunzhyicom.alex.theposter.api.actions.movies.UpcomingMoviesHttpAction
 import khorunzhyicom.alex.theposter.di.components.injector.CommandInjector
 import khorunzhyicom.alex.theposter.service.commands.base.ApiCommand
 import khorunzhyicom.alex.theposter.service.commands.ext.composeWithConfiguration
@@ -25,8 +26,8 @@ class GetUpcomingMoviesCommand : ApiCommand<List<Movie>>() {
 
     @Throws(Throwable::class)
     override fun run(callback: CommandCallback<List<Movie>>) {
-        janet.createPipe(TopRatedMoviesHttpAction::class)
-                .createObservableResult(TopRatedMoviesHttpAction())
+        janet.createPipe(UpcomingMoviesHttpAction::class)
+                .createObservableResult(UpcomingMoviesHttpAction())
                 .transformWith({ mapper.map(it) })
                 .composeWithConfiguration(configProvider.provide())
                 .subscribe({ callback.onSuccess(it) }, { callback.onFail(it) })

@@ -15,7 +15,8 @@ class MergeConfigurationComposer(val configObservable: Observable<Configuration>
                 .toList()
     }
 
+    // TODO :: manage image sizes
     fun concat(movie: Movie, configuration: Configuration): Movie {
-        return movie.copy(backdropPath = "${configuration.baseUrl}${movie.posterPath}")
+        return movie.copy(posterPath = "${configuration.baseUrl}${configuration.posterSizes?.get(2)}${movie.posterPath}")
     }
 }
